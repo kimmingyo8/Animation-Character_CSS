@@ -1,0 +1,285 @@
+body{
+    background: rgb(255, 122, 166);
+    box-sizing: border-box;
+    margin: initial;
+}
+:root{
+    --color-gray: #2d2d2d;
+    --color-pink:  #FF7878;
+    --color-black: #000;
+    --color--white: #fff;
+}
+/* 기준점 */
+.dol{
+    position:relative;
+    margin: 60px auto;
+    width: 600px;
+    height: 400px;
+}
+
+/* 머리 */
+.dol .head{
+    position: absolute;
+    bottom: 0;
+    width: 400px;
+    height: 300px;
+    border-radius: 50%;
+    border: 10px solid var(--color-black);
+    background: var(--color-gray);
+    box-shadow: inset 30px 20px 30px #111111b0;
+    transform:rotate(5deg);
+    /* transition: ; */
+    animation: head-move 1.3s infinite steps(45);
+}
+@keyframes head-move{
+    0%{
+        transform: translateY(0%)
+    }
+    30%{
+        transform: translateY(10%);
+    }
+    70%{
+        transform: translateY(5%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+
+/* 귀 */
+.dol .ear{
+    position: absolute;
+    top: 60px;
+    width: 39px;
+    height: 88px;
+    border-radius: 50%;
+    border: 10px solid var(--color-black);
+    background:var(--color-gray);
+    animation: ears-move 1.3s infinite steps(45);
+}
+.dol .ear.left{
+    left: 120px;
+}
+.dol .ear.right{
+    left: 250px;
+}
+.dol .ear.left::after{
+    position: absolute;
+    content: '';
+    background: var(--color-black);
+    width: 20px;
+    height: 72px;
+    border-radius: 50%;
+    top:10px;
+    left: 10px;
+}
+.dol .ear.right::after{
+    position: absolute;
+    content: '';
+    background: var(--color-black);
+    width: 20px;
+    height: 70px;
+    border-radius: 50%;
+    left: 10px;
+    top: 10px;
+}
+@keyframes ears-move{
+    0%{
+        transform: rotate(-15deg);
+    }
+    30%{
+        transform: rotate(-5deg) translateY(10%);
+    }
+    70%{
+        transform: rotate(-10deg)translate(5%);
+    }
+    to{
+        transform: rotate(-15deg);
+    }
+}
+
+/* 눈 */
+.head .eyeball {
+    position: absolute;
+    top: 100px;
+    width: 39px;
+    height: 77px;
+    border-radius: 50%;
+    background: var(--color--white);
+}
+.head .eyeball.left {
+    left: 180px;
+}
+.head .eyeball.right {
+    right: 98px;
+}
+.head .eyeball.left:after {
+    position: absolute;
+    content: '';
+    background: var(--color-black);
+    width: 18px;
+    height: 33px;
+    border-radius: 50%;
+    top: 8px;
+    left: 10px;
+    animation: eyes-arms-tail-move 1.3s infinite steps(45);
+
+}
+.head .eyeball.right:after {
+    position: absolute;
+    content: '';
+    background: var(--color-black);
+    width: 18px;
+    height: 33px;
+    border-radius: 50%;
+    top: 20px;
+    left: 10px;
+    animation: eyes-arms-tail-move 1.3s infinite steps(45);
+}
+@keyframes eyes-arms-tail-move{
+    0%{
+        transform: translateX(0%);
+    }
+    30%{
+        transform: translateY(60%);
+    }
+    70%{
+        transform: translateY(30%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+}
+/* 눈썹 */
+.head .eyebrow{
+    position: absolute;
+    width: 7px;
+    height: 35px;
+    background: var(--color-black);
+}
+.head .eyebrow.left{
+    transform: rotate(-30deg);
+    top: 70px;
+    left: 212px;
+}
+.head .eyebrow.right{
+    top: 70px;
+    left: 270px;
+    transform: rotate(50deg);
+}
+
+/* 볼 */
+.head .cheek{
+    position: absolute;
+    width: 67px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--color-pink);
+    top: 180px;
+}
+.head .cheek.left{
+    left: 100px;
+}
+.head .cheek.right{
+    left: 300px;
+}
+/* 입 */
+.head .mouth{
+    position: absolute;
+    top: 180px;
+    left: 210px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 30px 70px 30px;
+    border-color: transparent transparent red transparent;
+    animation: mouth-scale 1.3s infinite steps(45);
+}
+@keyframes mouth-scale{
+    0%{
+        transform: scale(1.2);
+    }
+    30%{
+        transform: scale(0.7) translateY(20px);
+    }
+    70%{
+        transform: scale(1.0) ;
+    }
+    to{
+        transform: scale(1.2);
+    }
+}
+
+/* 꼬리*/
+.tail{
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    border-radius: 50%;
+    border: 10px solid var(--color-black);
+    background: var(--color-gray);
+    top: 280px;
+    z-index: -1;
+    animation: eyes-arms-tail-move 1.3s infinite steps(45);
+}
+
+/* 팔 */
+.arm{
+    position:absolute;
+    width:10px;
+    height:77px;
+    animation:eyes-arms-tail-move 1.3s infinite steps(45);
+    background: var(--color-black);
+}
+.arm.left{
+    top:290px;
+    left: 80px;
+}
+.arm.right{
+    top:290px;
+    left: 380px;
+    z-index: -1;
+}
+.arm::before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--color-black);
+    top: 50px;
+    left: -10px;
+}
+
+
+/* --하반신-- */
+/* 다리 */
+.lower .leg{
+    position:absolute;
+    width:10px;
+    height:77px;
+    background: var(--color-black);
+    z-index: -1;
+}
+.lower .leg.left{
+    top: 360px;
+    left: 120px;
+}
+.lower .leg.right{
+    top: 350px;
+    left: 300px;
+}
+/* 발 */
+.lower .foot{
+    position: absolute;
+    width: 58px;
+    height: 20px;
+    top: 430px;
+    left: 110px;
+    border-radius: 50%;
+    background:var(--color-black);
+}
+.lower .foot.right{
+    left: 290px;
+    top: 420px;
+}
